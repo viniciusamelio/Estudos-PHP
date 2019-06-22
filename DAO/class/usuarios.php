@@ -111,6 +111,20 @@ class Usuarios
         ));
     }
 
+    public function delete()
+    {
+        $database = new database;
+        $database->query("delete from usuarios where id = :id",array(
+            ":id"=>$this->getID()
+        ));
+
+        $this->setId(0);
+        $this->setLogin("");
+        $this->setSenha("");
+        $this->setNome("");
+
+    }
+
     public function __toString()
     {
         return json_encode(array(

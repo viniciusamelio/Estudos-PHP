@@ -23,8 +23,15 @@ $usuario->setSenha(md5('amorzinho'));
 $usuario->insert();
 */
 
+//update
+/*
 $usuario = new usuarios;
 $usuario->selectID(26);
 $usuario->update("Gabi Moraes","gabriela",md5("gabriela"));
 
 echo $usuario;
+*/
+
+$usuario = new usuarios;
+$usuario->selectID(27);
+$usuario->delete();
