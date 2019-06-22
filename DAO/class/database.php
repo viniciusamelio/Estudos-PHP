@@ -29,7 +29,7 @@ class database extends PDO
         return $statement;
     }
     //Seleciona os dados através dos parâmetros e string SQL passada
-    public function select($sql, $params = array()):array
+    public function select($sql, $params = array())
     {
         $statement = $this->query($sql,$params);
         return $statement->fetchAll(PDO::FETCH_ASSOC);

@@ -64,6 +64,21 @@ class Usuarios
         }
     }
 
+    static function list()
+    {
+        $database = new database;
+        return $database->select("Select * from usuarios order by id");
+
+    }
+
+    static function search($login)
+    {
+        $database = new database;
+        return $database->select("select * from usuarios where login like :search order by login",array(
+            ":search"=>"%".$login."%"
+        ));
+    }
+
     public function __toString()
     {
         return json_encode(array(
