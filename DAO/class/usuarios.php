@@ -56,11 +56,7 @@ class Usuarios
             ":id"=>$id
         ));
         if (count($result) > 0) {
-            $row = $result[0];
-            $this->setId($row['id']);
-            $this->setNome($row['nome']);
-            $this->setLogin($row['login']);
-            $this->setSenha($row['senha']);
+            $this->setData($result[0]);
         }
     }
 
@@ -79,13 +75,32 @@ class Usuarios
         ));
     }
 
+    public function setData($data)
+    {
+        $this->setId($data['id']);
+        $this->setNome($data['nome']);
+        $this->setLogin($data['login']);
+        $this->setSenha($data['senha']);
+    }
+
+    public function insert()
+    {
+        $database = new database;
+        $result  = $database->select("CALL proc_usuarios_insert(:nome,:login,:senha)",array(
+            ":nome"=>$this->getNome(),
+            ":login"=>$this->getLogin(),
+            ":senha"=>$this->getSenha()
+        ));
+
+        if (count($result) > 0) {
+            $this->setData($result[0]);
+        }
+    }
+
     public function __toString()
     {
         return json_encode(array(
-            "id"=>$this->getId(),
-            "nome"=>$this->getNome(),
-            "login"=>$this->getLogin(),
-            "senha"=>$this->getSenha()
+            $this->setData($result[0])
         ),JSON_UNESCAPED_UNICODE);
     }
 }
