@@ -97,6 +97,20 @@ class Usuarios
         }
     }
 
+    public function update($nome,$login,$senha)
+    {
+        $this->setNome($nome);
+        $this->setLogin($login);
+        $this->setSenha($senha);
+        $database = new database;
+        $database->query("update usuarios set nome = :nome,login = :login, senha = :senha where id= :id", array(
+            ":nome"=>$this->getNome(),
+            ":login"=>$this->getLogin(),
+            ":senha"=>$this->getSenha(),
+            ":id"=>$this->getId()
+        ));
+    }
+
     public function __toString()
     {
         return json_encode(array(
