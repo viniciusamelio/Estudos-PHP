@@ -1,4 +1,6 @@
 <?php
+
+
 //Verifica se a requisição POST está sendo feita na página
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     //Adiciona o arquivo enviado a variável
