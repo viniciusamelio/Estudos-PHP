@@ -1,0 +1,15 @@
+{
+    "name": "viniciusamelio/composer",
+    "description": "Estudo sobre o uso do composer",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Vinicius Amélio",
+            "email": "vinicius.amelio@zoho.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "monolog/monolog":"1.0.*"
+    }
+}
