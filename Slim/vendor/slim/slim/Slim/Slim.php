@@ -76,6 +76,8 @@ class Slim
      */
     protected $response;
 
+    public $tpl;
+
     /**
      * @var \Slim\Router
      */
